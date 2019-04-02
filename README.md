@@ -16,13 +16,9 @@ A proof of concept (POC) for synchronizing data between Neutron and CWS/CMS.
 Docker containers for Kafka and other tools are provided by the [confluent open source platform](https://www.confluent.io/product/confluent-open-source/)
 
 
-
 To start all confluent platform services with Kafka and IBM-MQ you can use the following command:
 
-```
-docker-compose up -d confluent-kafka/docker-compose.yml
-
-```
+```docker-compose up -d confluent-kafka/docker-compose.yml```
 
 ## IBM MQ
 [IBM MQ](#ibm_mq)
@@ -42,14 +38,18 @@ To start test application use command:
 cd build/libs
 
 java -jar demo-0.0.1-SNAPSHOT.jar
- 
-
 ```
 
-To send test message to queue use the following command:
+In Eclipse, include folder "src/generated-sources/java" in the build path. Compilation errors disappear!
 
-```
+To launch Kafka in Docker, "cd" to the "docker" directory and run:
 
-curl localhost:8080/send
+```docker-compose up```
 
-```
+To send a test message to the queue use the following command:
+
+```curl localhost:8080/send```
+
+Open a browser and navigate to the link below to view messages:
+
+```http://localhost:8000/#/cluster/default/topic/n/replication/```
